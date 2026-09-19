@@ -1,27 +1,27 @@
-# Trendyol MCP server — through HeyMetra
+<div align="center">
 
-> **Unofficial.** This is not Trendyol's own MCP server and this repository is not affiliated with, endorsed by or supported by Trendyol. It documents how [HeyMetra](https://heymetra.com/), a remote MCP server built by Zeisoft, reads Trendyol.
+<img src="assets/cover.png" alt="Trendyol through HeyMetra's MCP server" width="100%">
+
+# Trendyol &times; HeyMetra
 
 **Marketplace orders, listings and what Trendyol deducted.**
+
+Your orders live in Trendyol. What you spent to win them lives in your ad accounts. One question, both answers.
 
 [![MCP Registry](https://img.shields.io/badge/MCP_Registry-com.heymetra%2Fheymetra-1f6feb)](https://registry.modelcontextprotocol.io/v0/servers/com.heymetra%2Fheymetra/versions)
 [![Transport](https://img.shields.io/badge/transport-Streamable_HTTP-444)](https://modelcontextprotocol.io/)
 [![Auth](https://img.shields.io/badge/auth-OAuth_2.1-444)](https://heymetra.com/security/)
 [![Connector page](https://img.shields.io/badge/heymetra.com-trendyol-1f6feb)](https://heymetra.com/connectors/trendyol/)
 
+```
+https://mcp.heymetra.com/mcp
+```
+
+</div>
+
 ---
 
-## What Trendyol is
-
-Trendyol is Turkey’s largest e-commerce marketplace, where sellers list products and fulfil orders at scale. It’s a custom HeyMetra connector built on Trendyol’s Seller (Marketplace) API.
-
-## What HeyMetra reads from Trendyol
-
-Connect the seller account with the token from the Trendyol panel and your MCP client gets three tools: orders for a period with status, items and shipment details; listings with barcodes, prices, stock and whether each is on sale; and settlement lines — sales, returns, discounts and commission. Trendyol serves two weeks at a time and keeps orders for three months; the orders tool handles both internally, so a quarter is one question. Read-only: no tool changes a listing, a price or an order. Finance can be switched off for a team that should see volume but not payouts.
-
-## What you can ask
-
-Once connected, in your own assistant, in plain language:
+## Ask it things like
 
 > How many orders came in this week, and how many are still unshipped?
 
@@ -31,27 +31,7 @@ Once connected, in your own assistant, in plain language:
 
 > How much of last month's sales came back as returns?
 
-## Permissions
-
-You switch these on per connection, and a permission you leave off is a tool your assistant never sees.
-
-| Permission | What it covers | Changes anything? |
-|---|---|---|
-| **Orders** | Read orders, statuses, and shipments — Trendyol keeps three months of orders. Older periods are refused rather than answered as if nothing was sold in them — settlements reach further back.. | No, read only |
-| **Listings** | Read listings, stock, and prices — Approved listings only. A listing still awaiting approval is not on sale, so it is not counted here.. | No, read only |
-| **Finance** | Read settlements, commission, and payouts — Settlement lines, not a total: Trendyol reports each sale, return, coupon and commission separately and HeyMetra does not add them up for you.. | No, read only |
-
-<details>
-<summary>What each permission lets an assistant do, in full</summary>
-
-- Reads how many orders each connected store took in a period and what they came to, with the status of each store's orders. Reported per store.
-- Reads what is listed for sale in each connected store: titles, SKUs or barcodes, prices and stock levels.
-- Reads what each connected account took in a period — payments, store sales, marketplace settlements — reported per account and never added together.
-</details>
-
-## What it can change
-
-- Trendyol is a read-only source — HeyMetra reads it to answer questions and never changes the account.
+No dashboard, no export, no query language. You ask in the assistant you already use and the answer comes back with the account it came from.
 
 ## Connect Trendyol
 
@@ -186,6 +166,26 @@ _The key is serverUrl, not url — the one every other JSON client spells differ
 Full walkthrough: [heymetra.com/mcp/antigravity/](https://heymetra.com/mcp/antigravity/)
 </details>
 
+## What it may and may not touch
+
+Trendyol is a read-only source — HeyMetra reads it to answer questions and never changes the account.
+
+Permissions are switched on per connection, and one you leave off is a tool your assistant never sees.
+
+| Permission | What it covers | Changes anything? |
+|---|---|---|
+| **Orders** | Read orders, statuses, and shipments — Trendyol keeps three months of orders. Older periods are refused rather than answered as if nothing was sold in them — settlements reach further back.. | No, read only |
+| **Listings** | Read listings, stock, and prices — Approved listings only. A listing still awaiting approval is not on sale, so it is not counted here.. | No, read only |
+| **Finance** | Read settlements, commission, and payouts — Settlement lines, not a total: Trendyol reports each sale, return, coupon and commission separately and HeyMetra does not add them up for you.. | No, read only |
+
+<details>
+<summary>What each permission lets an assistant do, in full</summary>
+
+- Reads how many orders each connected store took in a period and what they came to, with the status of each store's orders. Reported per store.
+- Reads what is listed for sale in each connected store: titles, SKUs or barcodes, prices and stock levels.
+- Reads what each connected account took in a period — payments, store sales, marketplace settlements — reported per account and never added together.
+</details>
+
 ## When something goes wrong
 
 <details>
@@ -224,9 +224,19 @@ Full walkthrough: [heymetra.com/mcp/antigravity/](https://heymetra.com/mcp/antig
 
 </details>
 
-## Everything else HeyMetra reads
+## What HeyMetra reads from Trendyol
 
-One connection answers across accounts — which is the point, because spend lives in one place and revenue in another:
+Connect the seller account with the token from the Trendyol panel and your MCP client gets three tools: orders for a period with status, items and shipment details; listings with barcodes, prices, stock and whether each is on sale; and settlement lines — sales, returns, discounts and commission. Trendyol serves two weeks at a time and keeps orders for three months; the orders tool handles both internally, so a quarter is one question. Read-only: no tool changes a listing, a price or an order. Finance can be switched off for a team that should see volume but not payouts.
+
+<details>
+<summary>About Trendyol</summary>
+
+Trendyol is Turkey’s largest e-commerce marketplace, where sellers list products and fulfil orders at scale. It’s a custom HeyMetra connector built on Trendyol’s Seller (Marketplace) API.
+</details>
+
+## One connection, not seven
+
+The reason to read Trendyol through HeyMetra rather than through a server that only knows Trendyol is everything else it can answer in the same breath:
 
 **Ads** — [Google Ads](https://heymetra.com/connectors/google-ads/) · [Meta](https://heymetra.com/connectors/meta-ads/)
 
@@ -240,17 +250,17 @@ One connection answers across accounts — which is the point, because spend liv
 
 **Channels** — [Slack](https://github.com/zeisoft/slack-mcp) · [Telegram](https://github.com/zeisoft/telegram-mcp)
 
-The full catalogue, with what each one can do today, is at [heymetra.com/connectors/](https://heymetra.com/connectors/).
+The full catalogue is at [heymetra.com/connectors/](https://heymetra.com/connectors/).
 
 ## Links
 
-- [Trendyol connector page](https://heymetra.com/connectors/trendyol/) — the source this page is generated from
+- [Trendyol connector page](https://heymetra.com/connectors/trendyol/)
 - [HeyMetra](https://heymetra.com/) — what the product is
-- [Setup per assistant](https://heymetra.com/mcp/) — eight clients, step by step
+- [Setup for every assistant](https://heymetra.com/mcp/)
 - [Security and limits](https://heymetra.com/security/)
-- [Pricing](https://heymetra.com/pricing/) — paid, no free plan and no trial
+- [Pricing](https://heymetra.com/pricing/)
 - [HeyMetra's own repository](https://github.com/zeisoft/heymetra-mcp)
 
 ---
 
-<sub>This README is generated from HeyMetra's live connector catalogue and refreshed daily; it is committed only when something in it actually changed. Corrections are welcome as issues. Built by <a href="https://zeisoft.com">Zeisoft</a>.</sub>
+<sub>Built by <a href="https://zeisoft.com">Zeisoft</a>, who make HeyMetra. Not affiliated with Trendyol. This README is generated from HeyMetra's live connector catalogue and refreshed daily; corrections are welcome as issues.</sub>
