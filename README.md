@@ -191,9 +191,9 @@ Permissions are switched on per connection, and one you leave off is a tool your
 <details>
 <summary>What each permission lets an assistant do, in full</summary>
 
-- Reads how many orders each connected store took in a period and what they came to, with the status of each store's orders. Reported per store.
-- Reads what is listed for sale in each connected store: titles, SKUs or barcodes, prices and stock levels.
-- Reads what each connected account took in a period — payments, store sales, marketplace settlements — reported per account and never added together.
+- Reads how many orders this Trendyol account took in a period, what they came to and what status each is in.
+- Reads what is listed for sale on this Trendyol account: titles, barcodes, prices and stock levels.
+- Reads Trendyol's settlement lines for a period. Never added to another account's figures.
 </details>
 
 ## When something goes wrong
