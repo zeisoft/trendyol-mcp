@@ -178,23 +178,22 @@ Full walkthrough: [heymetra.com/mcp/antigravity/](https://heymetra.com/mcp/antig
 
 ## What it may and may not touch
 
-Trendyol is a read-only source — HeyMetra reads it to answer questions and never changes the account.
+Propose a change through this account's own API, for operations HeyMetra does not cover. Nothing is sent until you approve it, and HeyMetra cannot undo it afterwards.
 
 Permissions are switched on per connection, and one you leave off is a tool your assistant never sees.
 
 | Permission | What it covers | Changes anything? |
 |---|---|---|
-| **Orders** | Read orders, statuses, and shipments — Trendyol keeps three months of orders. Older periods are refused rather than answered as if nothing was sold in them — settlements reach further back.. | No, read only |
-| **Listings** | Read listings, stock, and prices — Approved listings only. A listing still awaiting approval is not on sale, so it is not counted here.. | No, read only |
-| **Finance** | Read settlements, commission, and payouts — Settlement lines, not a total: Trendyol reports each sale, return, coupon and commission separately and HeyMetra does not add them up for you.. | No, read only |
+| **Direct API access** | Let your assistant use this account's own API for anything HeyMetra's other operations do not cover. It reads directly, and what comes back is the provider's own answer rather than a figure HeyMetra has checked. It can also propose changes — those are never applied until you approve them, and HeyMetra cannot undo one afterwards — Trendyol keeps three months of orders. Older periods are refused rather than answered as if nothing was sold in them — settlements reach further back.; Approved listings only. A listing still awaiting approval is not on sale, so it is not counted here.; Settlement lines, not a total: Trendyol reports each sale, return, coupon and commission separately and HeyMetra does not add them up for you.. | Yes — every change waits for your approval |
 
 <details>
 <summary>What each permission lets an assistant do, in full</summary>
 
-- Reads how many orders this Trendyol account took in a period, what they came to and what status each is in.
-- Reads what is listed for sale on this Trendyol account: titles, barcodes, prices and stock levels.
-- Reads Trendyol's settlement lines for a period. Never added to another account's figures.
+- Ask this account's own API a question HeyMetra's other operations do not cover. Reads only, and the answer is the provider's own rather than a figure HeyMetra has checked.
+- Propose a change through this account's own API, for operations HeyMetra does not cover. Nothing is sent until you approve it, and HeyMetra cannot undo it afterwards.
 </details>
+
+Anything that would change something comes back as a proposal you approve, inside bounds that live in code rather than in a prompt: ±50% on a budget, 5 campaigns per action and 20 changes a rolling day, and an approval that expires after 30 minutes. [How that works](https://heymetra.com/security/).
 
 ## When something goes wrong
 
