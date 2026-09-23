@@ -235,7 +235,7 @@ Anything that would change something comes back as a proposal you approve, insid
 
 ## What HeyMetra reads from Trendyol
 
-Connect the seller account with the token from the Trendyol panel and your MCP client gets three tools: orders for a period with status, items and shipment details; listings with barcodes, prices, stock and whether each is on sale; and settlement lines — sales, returns, discounts and commission. Trendyol serves two weeks at a time and keeps orders for three months; the orders tool handles both internally, so a quarter is one question. Read-only: no tool changes a listing, a price or an order. Finance can be switched off for a team that should see volume but not payouts.
+Connect the seller account with the token from the Trendyol panel and your MCP client gets one tool that composes calls against it: orders for a period with status, items and shipment details; listings with barcodes, prices, stock and whether each is on sale; and settlement lines — sales, returns, discounts and commission. Trendyol serves two weeks at a time and keeps orders for three months, so a long period is several calls rather than one. A Trendyol token cannot be split into a read half and a write half, so HeyMetra asks you at connect time whether this connection may change anything; a change it is allowed to make still comes back as a proposal naming the exact call and waits until you approve it. Finance can be switched off for a team that should see volume but not payouts.
 
 <details>
 <summary>About Trendyol</summary>
@@ -249,13 +249,15 @@ The reason to read Trendyol through HeyMetra rather than through a server that o
 
 **Ads** — [Google Ads](https://heymetra.com/connectors/google-ads/) · [Meta](https://heymetra.com/connectors/meta-ads/)
 
-**Analytics** — [Google Analytics 4](https://heymetra.com/connectors/google-analytics-4/) · [Google Search Console](https://github.com/zeisoft/google-search-console-mcp)
+**Analytics** — [Google Analytics 4](https://heymetra.com/connectors/google-analytics-4/) · [Google Search Console](https://github.com/zeisoft/google-search-console-mcp) · [PostHog](https://github.com/zeisoft/posthog-mcp)
 
 **Ecommerce** — [Shopify](https://heymetra.com/connectors/shopify/) · **Trendyol** · [WooCommerce](https://github.com/zeisoft/woocommerce-mcp)
 
 **Revenue & CRM** — [Stripe](https://heymetra.com/connectors/stripe/) · [HubSpot](https://heymetra.com/connectors/hubspot/) · [Zoho CRM](https://github.com/zeisoft/zoho-crm-mcp) · [Zoho SalesIQ](https://github.com/zeisoft/zoho-salesiq-mcp) · [Zoho Marketing Automation](https://github.com/zeisoft/zoho-marketing-automation-mcp)
 
 **Mobile** — [AppsFlyer](https://github.com/zeisoft/appsflyer-mcp) · [RevenueCat](https://heymetra.com/connectors/revenuecat/) · [Adapty](https://github.com/zeisoft/adapty-mcp) · [App Store Connect](https://github.com/zeisoft/app-store-connect-mcp)
+
+**Work** — [Google Calendar](https://heymetra.com/connectors/google-calendar/) · [Google Meet](https://heymetra.com/connectors/google-meet/) · [Jira](https://github.com/zeisoft/jira-mcp)
 
 **Channels** — [Slack](https://github.com/zeisoft/slack-mcp) · [Telegram](https://github.com/zeisoft/telegram-mcp)
 
