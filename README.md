@@ -39,19 +39,19 @@ No dashboard, no export, no query language. You ask in the assistant you already
 
 Sign in at partner.trendyol.com, open the account menu at the top right and choose Account Information, then Integration Information. The page lists your store's API credentials together.
 
-> It is the Seller (Partner) panel, not the Trendyol app or the shopping site — the same login does not reach it unless the account is a seller account.
+> It is the Seller (Partner) panel, not the Trendyol app or the shopping site. The same login does not reach it unless the account is a seller account.
 
 **2. Copy the Seller ID**
 
 It is the short number at the top of that page, usually six digits. Trendyol also calls it Supplier ID in its own documentation; they are the same number.
 
-> This one is not a secret. It travels on every request as part of the identifier Trendyol requires, so HeyMetra keeps it beside the connection rather than in the vault.
+> This one is not a secret. It identifies your store, so it is shown on the connection rather than hidden like the key and the secret.
 
 **3. Copy the API Key and the API Secret**
 
 Two separate values on the same page, one under the other. Copy them into the two separate boxes in HeyMetra, in the order the panel shows them.
 
-> They look alike — both are twenty characters of letters and digits — and swapping them produces a login failure with nothing on screen to say which way round they went.
+> They look alike: both are twenty characters of letters and digits. Swapping them produces a login failure with nothing on screen to say which way round they went.
 
 **4. Paste all three in HeyMetra and save**
 
@@ -59,7 +59,7 @@ Choose Trendyol on the Connections screen, fill the three boxes and save. HeyMet
 
 **5. Add HeyMetra to the assistant you use**
 
-Claude, ChatGPT, Cursor or Codex — HeyMetra gives you the address and the key to paste. The Trendyol tools appear in that assistant once it connects.
+Claude, ChatGPT, Cursor or Codex. HeyMetra gives you the address and the key to paste, and Trendyol answers in that assistant once it connects.
 
 ## Then add HeyMetra to your assistant
 
@@ -94,7 +94,7 @@ Full walkthrough: [heymetra.com/mcp/claude/](https://heymetra.com/mcp/claude/)
 
 Paste the address above into Settings → Security and login → Developer mode, then chatgpt.com/plugins.
 
-_The endpoint has to include its /mcp path here._
+_The address has to end in /mcp here._
 
 Full walkthrough: [heymetra.com/mcp/chatgpt/](https://heymetra.com/mcp/chatgpt/)
 </details>
@@ -155,7 +155,7 @@ Full walkthrough: [heymetra.com/mcp/codex/](https://heymetra.com/mcp/codex/)
 }
 ```
 
-_Leave the static OAuth fields empty — they exist for servers that cannot register themselves._
+_Leave the static OAuth fields empty; HeyMetra does not need them._
 
 Full walkthrough: [heymetra.com/mcp/cursor/](https://heymetra.com/mcp/cursor/)
 </details>
@@ -171,26 +171,26 @@ Full walkthrough: [heymetra.com/mcp/cursor/](https://heymetra.com/mcp/cursor/)
 }
 ```
 
-_The key is serverUrl, not url — the one every other JSON client spells differently._
+_The key is serverUrl, not url, unlike every other JSON client._
 
 Full walkthrough: [heymetra.com/mcp/antigravity/](https://heymetra.com/mcp/antigravity/)
 </details>
 
 ## What it may and may not touch
 
-Propose a change through this account's own API, for operations HeyMetra does not cover. Nothing is sent until you approve it, and HeyMetra cannot undo it afterwards.
+Propose a change to this account. Nothing is sent until you approve it, and HeyMetra cannot undo it afterwards.
 
 Permissions are switched on per connection, and one you leave off is a tool your assistant never sees.
 
 | Permission | What it covers | Changes anything? |
 |---|---|---|
-| **Direct API access** | Let your assistant use this account's own API for anything HeyMetra's other operations do not cover. It reads directly, and what comes back is the provider's own answer rather than a figure HeyMetra has checked. It can also propose changes — those are never applied until you approve them, and HeyMetra cannot undo one afterwards — Trendyol keeps three months of orders. Older periods are refused rather than answered as if nothing was sold in them — settlements reach further back.; Approved listings only. A listing still awaiting approval is not on sale, so it is not counted here.; Settlement lines, not a total: Trendyol reports each sale, return, coupon and commission separately and HeyMetra does not add them up for you.. | Yes — every change waits for your approval |
+| **Full account access** | Lets your assistant read anything in this account to answer your questions. The figures are the provider's own, not ones HeyMetra has checked. It can also propose changes: none is applied until you approve it, and HeyMetra cannot undo one afterwards — Trendyol keeps three months of orders. Older periods are refused rather than answered as if nothing was sold in them. Settlements reach further back.; Approved listings only. A listing still awaiting approval is not on sale, so it is not counted here.; Settlement lines, not a total: Trendyol reports each sale, return, coupon and commission separately and HeyMetra does not add them up for you.. | Yes — every change waits for your approval |
 
 <details>
 <summary>What each permission lets an assistant do, in full</summary>
 
-- Ask this account's own API a question HeyMetra's other operations do not cover. Reads only, and the answer is the provider's own rather than a figure HeyMetra has checked.
-- Propose a change through this account's own API, for operations HeyMetra does not cover. Nothing is sent until you approve it, and HeyMetra cannot undo it afterwards.
+- Ask anything about this account and get the answer from its live data. Reads only, and the figures are the provider's own rather than ones HeyMetra has checked.
+- Propose a change to this account. Nothing is sent until you approve it, and HeyMetra cannot undo it afterwards.
 </details>
 
 Anything that would change something comes back as a proposal you approve, inside bounds that live in code rather than in a prompt: ±50% on a budget, 5 campaigns per action and 20 changes a rolling day, and an approval that expires after 30 minutes. [How that works](https://heymetra.com/security/).
@@ -220,7 +220,7 @@ Anything that would change something comes back as a proposal you approve, insid
 
 **Why:** Trendyol's order service keeps three months and answers an empty list beyond it rather than an error.
 
-**Fix:** Ask about a period inside the last three months. HeyMetra refuses an older one by name rather than reporting it as quiet — settlements reach further back if what you need is the money.
+**Fix:** Ask about a period inside the last three months. HeyMetra says an older one is out of reach rather than reporting it as quiet. Settlements reach further back if what you need is the money.
 
 </details>
 
@@ -235,12 +235,12 @@ Anything that would change something comes back as a proposal you approve, insid
 
 ## What HeyMetra reads from Trendyol
 
-Connect the seller account with the token from the Trendyol panel and your MCP client gets one tool that composes calls against it: orders for a period with status, items and shipment details; listings with barcodes, prices, stock and whether each is on sale; and settlement lines — sales, returns, discounts and commission. Trendyol serves two weeks at a time and keeps orders for three months, so a long period is several calls rather than one. A Trendyol token cannot be split into a read half and a write half, so HeyMetra asks you at connect time whether this connection may change anything; a change it is allowed to make still comes back as a proposal naming the exact call and waits until you approve it. Finance can be switched off for a team that should see volume but not payouts.
+Connect the seller account with the credentials from the Trendyol panel, then ask about it from your assistant: orders for a period with status, items and shipment details; listings with barcodes, prices, stock and whether each is on sale; and settlement lines for sales, returns, discounts and commission. Trendyol keeps orders for three months. When you connect, you choose whether your assistant may also propose changes, and every change it proposes waits until you approve it. Finance can be switched off for a team that should see volume but not payouts.
 
 <details>
 <summary>About Trendyol</summary>
 
-Trendyol is Turkey’s largest e-commerce marketplace, where sellers list products and fulfil orders at scale. It’s a custom HeyMetra connector built on Trendyol’s Seller (Marketplace) API.
+Trendyol is Turkey’s largest e-commerce marketplace, where sellers list products and fulfil orders at scale.
 </details>
 
 ## One connection, not seven
