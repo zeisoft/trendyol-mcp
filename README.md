@@ -59,7 +59,7 @@ Choose Trendyol on the Connections screen, fill the three boxes and save. HeyMet
 
 **5. Add HeyMetra to the assistant you use**
 
-Claude, ChatGPT, Cursor or Codex. HeyMetra gives you the address and the key to paste, and Trendyol answers in that assistant once it connects.
+Claude, ChatGPT, Cursor or Codex. You paste one address and sign in once, and Trendyol answers in that assistant once it connects.
 
 ## Then add HeyMetra to your assistant
 
