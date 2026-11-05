@@ -247,11 +247,11 @@ Trendyol is Turkey’s largest e-commerce marketplace, where sellers list produc
 
 The reason to read Trendyol through HeyMetra rather than through a server that only knows Trendyol is everything else it can answer in the same breath:
 
-**Ads** — [Google Ads](https://heymetra.com/connectors/google-ads/) · [Meta](https://heymetra.com/connectors/meta-ads/)
+**Ads** — [Google Ads](https://github.com/zeisoft/google-ads-mcp) · [Meta](https://heymetra.com/connectors/meta-ads/)
 
 **Analytics** — [Google Analytics 4](https://github.com/zeisoft/google-analytics-4-mcp) · [Google Search Console](https://github.com/zeisoft/google-search-console-mcp) · [PostHog](https://github.com/zeisoft/posthog-mcp)
 
-**Ecommerce** — [Shopify](https://heymetra.com/connectors/shopify/) · **Trendyol** · [Hepsiburada](https://heymetra.com/connectors/hepsiburada/) · [n11](https://github.com/zeisoft/n11-mcp) · [Çiçeksepeti](https://github.com/zeisoft/ciceksepeti-mcp) · [Amazon Seller Central](https://github.com/zeisoft/amazon-seller-central-mcp) · [ikas](https://heymetra.com/connectors/ikas/) · [WooCommerce](https://github.com/zeisoft/woocommerce-mcp)
+**Ecommerce** — [Shopify](https://heymetra.com/connectors/shopify/) · **Trendyol** · [Hepsiburada](https://heymetra.com/connectors/hepsiburada/) · [n11](https://github.com/zeisoft/n11-mcp) · [Çiçeksepeti](https://github.com/zeisoft/ciceksepeti-mcp) · [Amazon Seller Central](https://github.com/zeisoft/amazon-seller-central-mcp) · [ikas](https://github.com/zeisoft/ikas-mcp) · [WooCommerce](https://github.com/zeisoft/woocommerce-mcp)
 
 **Revenue & CRM** — [Stripe](https://github.com/zeisoft/stripe-mcp) · [HubSpot](https://heymetra.com/connectors/hubspot/) · [Zoho CRM](https://github.com/zeisoft/zoho-crm-mcp) · [Zoho SalesIQ](https://github.com/zeisoft/zoho-salesiq-mcp) · [Zoho Marketing Automation](https://github.com/zeisoft/zoho-marketing-automation-mcp)
 
