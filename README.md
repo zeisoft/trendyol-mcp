@@ -249,7 +249,7 @@ Trendyol is Turkey’s largest e-commerce marketplace, where sellers list produc
 
 The reason to read Trendyol through HeyMetra rather than through a server that only knows Trendyol is everything else it can answer in the same breath:
 
-**Ads** — [Google Ads](https://github.com/zeisoft/google-ads-mcp)
+**Ads** — [Google Ads](https://github.com/zeisoft/google-ads-mcp) · [Meta](https://github.com/zeisoft/meta-ads-mcp)
 
 **Analytics** — [Google Analytics 4](https://github.com/zeisoft/google-analytics-4-mcp) · [Google Search Console](https://github.com/zeisoft/google-search-console-mcp) · [PostHog](https://github.com/zeisoft/posthog-mcp)
 
